@@ -93,9 +93,9 @@ LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
 
-import cloudinary
 
-import os
+
+
 import cloudinary
 
 cloudinary.config(
