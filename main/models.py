@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+from cloudinary.models import CloudinaryField
+
 class Service(models.Model):
     title = models.CharField(max_length=120)
     icon = models.CharField(max_length=50, default='bi bi-code-slash')
@@ -12,7 +14,8 @@ class Service(models.Model):
 
 class Project(models.Model):
     title = models.CharField(max_length=150)
-    image = models.ImageField(upload_to='projects/', blank=True, null=True)
+    #image = models.ImageField(upload_to='projects/', blank=True, null=True)
+    image = CloudinaryField('image', blank=True, null=True)
     description = models.TextField()
     technology_used = models.CharField(max_length=250)
     project_link = models.URLField(blank=True)
@@ -24,7 +27,8 @@ class Project(models.Model):
 class BlogPost(models.Model):
     title = models.CharField(max_length=180)
     slug = models.SlugField(unique=True)
-    image = models.ImageField(upload_to='blogs/', blank=True, null=True)
+   # image = models.ImageField(upload_to='blogs/', blank=True, null=True)
+    image = CloudinaryField('image', blank=True, null=True)
     category = models.CharField(max_length=100)
     author = models.CharField(max_length=100, default='Admin')
     description = models.TextField()
@@ -65,7 +69,8 @@ class Testimonial(models.Model):
 class TeamMember(models.Model):
     name = models.CharField(max_length=100)
     role = models.CharField(max_length=100)
-    image = models.ImageField(upload_to='team/', blank=True, null=True)
+    #image = models.ImageField(upload_to='team/', blank=True, null=True)
+    image = CloudinaryField('image', blank=True, null=True)
     bio = models.TextField()
     linkedin = models.URLField(blank=True)
 
@@ -86,7 +91,8 @@ class UserProfile(models.Model):
 #video model
 class HeroVideo(models.Model):
     title = models.CharField(max_length=200)
-    video = models.FileField(upload_to='videos/')
+    #video = models.FileField(upload_to='videos/')
+    video = CloudinaryField(resource_type="video")
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
