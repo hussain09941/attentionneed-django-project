@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Projects | Attentionneed.com{% endblock %}
+{% block content %}
+<section class="page-header"><div class="container"><h1>Projects</h1><p>Explore our completed technology projects.</p></div></section>
+<section class="section">
+<div class="container"><div class="row g-4">
+{% for project in projects %}
+<div class="col-md-4"><div class="project-card">{% if project.image %}<img src="{{ project.image.url }}">{% endif %}<div class="p-3"><h4>{{ project.title }}</h4><p>{{ project.description }}</p><span>{{ project.technology_used }}</span>{% if project.project_link %}<br><a href="{{ project.project_link }}" target="_blank">View Project</a>{% endif %}</div></div></div>
+{% empty %}<p class="text-center">Add projects from Django Admin.</p>{% endfor %}
+</div></div>
+</section>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Services | Attentionneed.com{% endblock %}
+{% block content %}
+<section class="page-header"><div class="container"><h1>Services</h1><p>Complete technology services for your business.</p></div></section>
+<section class="section">
+<div class="container"><div class="row g-4">
+{% for service in services %}
+<div class="col-md-4"><div class="info-card"><i class="{{ service.icon }}"></i><h4>{{ service.title }}</h4><p>{{ service.description }}</p></div></div>
+{% empty %}<p class="text-center">Add services from Django Admin.</p>{% endfor %}
+</div></div>
+</section>
+{% endblock %}

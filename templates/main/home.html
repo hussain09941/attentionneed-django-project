@@ -1,0 +1,403 @@
+{% extends 'base.html' %}
+{% block title %}Home | Attentionneed.com{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section Start -->
+<section class="hero advanced-hero">
+    <div class="hero-shape shape-one"></div>
+    <div class="hero-shape shape-two"></div>
+
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+
+            <!-- Hero Left Content -->
+            <div class="col-lg-7">
+                <p class="eyebrow">Modern IT & Technology Company</p>
+
+                <h1>
+                    Build smarter digital products with
+                    <span>Attentionneed.com</span>
+                </h1>
+
+                <p class="lead">
+                    We design and develop modern websites, mobile apps, AI-powered systems,
+                    cloud platforms, cybersecurity solutions and UI/UX experiences for growing businesses.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="{% url 'services' %}" class="btn btn-info btn-lg me-2">
+                        Get Started <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                    <a href="{% url 'contact' %}" class="btn btn-outline-light btn-lg">
+                        Contact Us
+                    </a>
+                </div>
+
+                <!-- Hero Stats -->
+                <div class="hero-stats">
+                    <div>
+                        <h3>50+</h3>
+                        <p>Projects</p>
+                    </div>
+
+                    <div>
+                        <h3>25+</h3>
+                        <p>Clients</p>
+                    </div>
+
+                    <div>
+                        <h3>6+</h3>
+                        <p>Services</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Right Card -->
+            <div class="col-lg-5">
+                <div class="hero-card advanced-card">
+                    <div class="tech-orbit">
+                        <span class="orbit-icon icon-one"><i class="bi bi-code-slash"></i></span>
+                        <span class="orbit-icon icon-two"><i class="bi bi-phone"></i></span>
+                        <span class="orbit-icon icon-three"><i class="bi bi-cloud"></i></span>
+                        <span class="orbit-icon icon-four"><i class="bi bi-shield-lock"></i></span>
+                    </div>
+
+                    <i class="bi bi-cpu main-chip"></i>
+
+                    <h3>Future-ready technology</h3>
+                    <p>
+                        Clean code, scalable architecture, secure systems and beautiful design.
+                    </p>
+
+                    <div class="tech-tags">
+                        <span>Django</span>
+                        <span>AI/ML</span>
+                        <span>Cloud</span>
+                        <span>Security</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+
+
+<!-- Services Section Start -->
+<section class="section">
+    <div class="container">
+
+        <div class="section-title">
+            <p class="eyebrow dark-eye">What We Offer</p>
+            <h2>Our Services</h2>
+            <p>Powerful technology solutions that help your business grow faster.</p>
+        </div>
+
+        <div class="row g-4">
+            {% for service in services %}
+            <div class="col-md-4">
+                <div class="info-card service-card">
+                    <div class="service-icon">
+                        <i class="{{ service.icon }}"></i>
+                    </div>
+
+                    <h4>{{ service.title }}</h4>
+
+                    <p>{{ service.description|truncatewords:22 }}</p>
+
+                    <a href="{% url 'services' %}" class="card-link">
+                        Learn More <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center">Add services from Django Admin.</p>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="{% url 'services' %}" class="btn btn-outline-primary btn-lg">
+                View All Services
+            </a>
+        </div>
+
+    </div>
+</section>
+<!-- Services Section End -->
+
+
+<!-- Why Choose Us Start -->
+<section class="section light">
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+                <p class="eyebrow dark-eye">Why Choose Us</p>
+                <h2 class="section-heading">
+                    We build secure, scalable and high-performing digital products.
+                </h2>
+
+                <p>
+                    Our team focuses on clean development, responsive design, performance,
+                    security and long-term maintainability.
+                </p>
+
+                <div class="why-list">
+                    <div>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Modern and responsive design</span>
+                    </div>
+
+                    <div>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>SEO-friendly and fast-loading websites</span>
+                    </div>
+
+                    <div>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Secure backend and database structure</span>
+                    </div>
+
+                    <div>
+                        <i class="bi bi-check-circle-fill"></i>
+                        <span>Professional support after delivery</span>
+                    </div>
+                </div>
+
+                <a href="{% url 'contact' %}" class="btn btn-info mt-4">
+                    Discuss Your Project
+                </a>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="why-grid">
+                    <div class="why-card">
+                        <i class="bi bi-lightning-charge"></i>
+                        <h4>Fast Delivery</h4>
+                        <p>Quick development with quality-focused workflow.</p>
+                    </div>
+
+                    <div class="why-card">
+                        <i class="bi bi-shield-check"></i>
+                        <h4>Secure Code</h4>
+                        <p>Security-first development for business applications.</p>
+                    </div>
+
+                    <div class="why-card">
+                        <i class="bi bi-graph-up-arrow"></i>
+                        <h4>Growth Focused</h4>
+                        <p>Digital products designed to support business growth.</p>
+                    </div>
+
+                    <div class="why-card">
+                        <i class="bi bi-headset"></i>
+                        <h4>Support</h4>
+                        <p>Reliable support for updates and maintenance.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- Why Choose Us End -->
+<!-- Hero Section End -->
+
+
+<!-- VIDEO SECTION START -->
+<section class="video-section">
+
+    {% if video %}
+    <video autoplay muted loop playsinline controls class="background-video">
+        <source src="{{ video.video.url }}" type="video/mp4">
+    </video>
+    {% endif %}
+
+    {% comment %} <div class="video-overlay-content">
+        <h1>Attentionneed.com</h1>
+        <p>Modern Websites • AI • Cloud • Security</p>
+
+        <button onclick="toggleSound()" class="sound-btn">
+            🔊 Sound
+        </button>
+    </div> {% endcomment %}
+
+</section>
+<!-- VIDEO SECTION END -->
+
+
+<!-- Services Section Start -->
+<section class="section">
+
+<!-- Projects Section Start -->
+<section class="section">
+    <div class="container">
+
+        <div class="section-title">
+            <p class="eyebrow dark-eye">Our Work</p>
+            <h2>Latest Projects</h2>
+            <p>Explore some of our completed technology projects.</p>
+        </div>
+
+        <div class="row g-4">
+            {% for project in projects %}
+            <div class="col-md-4">
+                <div class="project-card advanced-project">
+                    {% if project.image %}
+                    <img src="{{ project.image.url }}" alt="{{ project.title }}">
+                    {% endif %}
+
+                    <div class="p-3">
+                        <span>{{ project.technology_used }}</span>
+                        <h4 class="mt-3">{{ project.title }}</h4>
+                        <p>{{ project.description|truncatewords:18 }}</p>
+
+                        {% if project.project_link %}
+                        <a href="{{ project.project_link }}" target="_blank" class="card-link">
+                            View Project <i class="bi bi-box-arrow-up-right"></i>
+                        </a>
+                        {% else %}
+                        <a href="{% url 'projects' %}" class="card-link">
+                            View Details <i class="bi bi-arrow-right"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center">Add projects from Django Admin.</p>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="{% url 'projects' %}" class="btn btn-outline-primary btn-lg">
+                View All Projects
+            </a>
+        </div>
+
+    </div>
+</section>
+<!-- Projects Section End -->
+
+
+<!-- Process Section Start -->
+<section class="section light">
+    <div class="container">
+
+        <div class="section-title">
+            <p class="eyebrow dark-eye">Work Process</p>
+            <h2>How We Work</h2>
+            <p>A simple and professional process for every project.</p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-3">
+                <div class="process-card">
+                    <span>01</span>
+                    <h4>Discussion</h4>
+                    <p>We understand your idea, business goal and project requirements.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="process-card">
+                    <span>02</span>
+                    <h4>Planning</h4>
+                    <p>We prepare project structure, timeline, technology and design plan.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="process-card">
+                    <span>03</span>
+                    <h4>Development</h4>
+                    <p>We build your product using clean code and modern technology.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="process-card">
+                    <span>04</span>
+                    <h4>Delivery</h4>
+                    <p>We test, deploy and deliver your project with proper support.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- Process Section End -->
+
+
+<!-- Testimonials Section Start -->
+<section class="section">
+    <div class="container">
+
+        <div class="section-title">
+            <p class="eyebrow dark-eye">Client Feedback</p>
+            <h2>Testimonials</h2>
+            <p>What clients say about our work.</p>
+        </div>
+
+        <div class="row g-4">
+            {% for t in testimonials %}
+            <div class="col-md-4">
+                <div class="testimonial advanced-testimonial">
+                    <div class="stars">
+                        {% for i in "12345" %}
+                        <i class="bi bi-star-fill"></i>
+                        {% endfor %}
+                    </div>
+
+                    <p>“{{ t.feedback }}”</p>
+
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            {{ t.client_name|first }}
+                        </div>
+
+                        <div>
+                            <h5>{{ t.client_name }}</h5>
+                            <small>{{ t.role }}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center">Add testimonials from Django Admin.</p>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+<!-- Testimonials Section End -->
+
+
+<!-- CTA Section Start -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-box">
+            <div>
+                <p class="eyebrow">Start Your Project</p>
+                <h2>Have an idea? Let’s build something powerful together.</h2>
+                <p>
+                    Contact us today and get a professional technology solution for your business.
+                </p>
+            </div>
+
+            <a href="{% url 'contact' %}" class="btn btn-info btn-lg">
+                Contact Now <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- CTA Section End -->
+
+{% endblock %}

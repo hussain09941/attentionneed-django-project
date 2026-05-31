@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% block title %}About | Attentionneed.com{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <h1>About Us</h1>
+        <p>We transform ideas into powerful digital solutions.</p>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="section">
+    <div class="container">
+        <div class="row g-4 align-items-center">
+
+            <div class="col-lg-6">
+                <p class="eyebrow dark-eye">Who We Are</p>
+                <h2 class="section-heading">Building modern technology solutions for businesses.</h2>
+
+                <p>
+                    Attentionneed.com is a technology company focused on web development,
+                    mobile applications, AI/ML solutions, cloud computing, cybersecurity,
+                    and modern UI/UX design.
+                </p>
+
+                <p>
+                    We help businesses create secure, scalable and professional digital
+                    products using modern technologies and clean development practices.
+                </p>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="glass-box about-mission-box">
+                    <div class="mission-item">
+                        <i class="bi bi-bullseye"></i>
+                        <div>
+                            <h4>Mission</h4>
+                            <p>To deliver reliable, scalable and affordable digital solutions.</p>
+                        </div>
+                    </div>
+
+                    <div class="mission-item">
+                        <i class="bi bi-eye"></i>
+                        <div>
+                            <h4>Vision</h4>
+                            <p>To become a trusted technology partner for businesses worldwide.</p>
+                        </div>
+                    </div>
+
+                    <div class="mission-item">
+                        <i class="bi bi-lightning-charge"></i>
+                        <div>
+                            <h4>Goal</h4>
+                            <p>To build future-ready products with performance, security and design.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="section light">
+    <div class="container">
+
+        <div class="section-title">
+            <p class="eyebrow dark-eye">Our Strength</p>
+            <h2>Why Choose Us</h2>
+            <p>We focus on quality, performance and long-term support.</p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-3">
+                <div class="mini-card advanced-mini-card">
+                    <i class="bi bi-people"></i>
+                    <h5>Expert Team</h5>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="mini-card advanced-mini-card">
+                    <i class="bi bi-code-slash"></i>
+                    <h5>Clean Code</h5>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="mini-card advanced-mini-card">
+                    <i class="bi bi-rocket-takeoff"></i>
+                    <h5>Fast Delivery</h5>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="mini-card advanced-mini-card">
+                    <i class="bi bi-headset"></i>
+                    <h5>24/7 Support</h5>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Team Section -->
+<section class="section">
+    <div class="container">
+
+        <div class="section-title">
+            <p class="eyebrow dark-eye">Meet Our Experts</p>
+            <h2>Our Team</h2>
+            <p>Creative minds behind Attentionneed.com</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+
+            {% for member in team %}
+            <div class="col-md-4">
+                <div class="team-card advanced-team-card">
+
+                    {% if member.image %}
+                    <div class="team-img-box">
+                        <img src="{{ member.image.url }}" alt="{{ member.name }}">
+                    </div>
+                    {% else %}
+                    <div class="team-img-box team-placeholder">
+                        <span>{{ member.name|first }}</span>
+                    </div>
+                    {% endif %}
+
+                    <h4>{{ member.name }}</h4>
+                    <p class="team-role">{{ member.role }}</p>
+
+                    {% if member.bio %}
+                    <small>{{ member.bio }}</small>
+                    {% endif %}
+
+                    {% if member.linkedin %}
+                    <div class="mt-3">
+                        <a href="{{ member.linkedin }}" target="_blank" class="team-link">
+                            <i class="bi bi-linkedin"></i> LinkedIn
+                        </a>
+                    </div>
+                    {% endif %}
+
+                </div>
+            </div>
+            {% empty %}
+            <p class="text-center">Add team members from Django Admin.</p>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

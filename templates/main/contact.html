@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Contact | Attentionneed.com{% endblock %}
+{% block content %}
+<section class="page-header"><div class="container"><h1>Contact Us</h1><p>Tell us about your project.</p></div></section>
+<section class="section">
+<div class="container">
+<div class="row g-4">
+<div class="col-lg-7">
+<form method="post" class="form-card">{% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-info">Send Message</button>
+</form>
+</div>
+<div class="col-lg-5">
+<div class="contact-box">
+<h3>Company Details</h3>
+<p><i class="bi bi-envelope"></i> info@attentionneed.com</p>
+<p><i class="bi bi-phone"></i>7320055521</p>
+<p><i class="bi bi-geo-alt"></i> Gachhi Bowli Hyderabad, telanaga, India</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

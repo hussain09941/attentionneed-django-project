@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}{{ post.title }} | Attentionneed.com{% endblock %}
+{% block content %}
+<section class="page-header"><div class="container"><h1>{{ post.title }}</h1><p>{{ post.category }} | {{ post.created_at }} | {{ post.author }}</p></div></section>
+<section class="section">
+<div class="container blog-detail">
+    {% if post.image %}<img src="{{ post.image.url }}" class="detail-img">{% endif %}
+    <p class="lead">{{ post.description }}</p>
+    <div>{{ post.content|linebreaks }}</div>
+</div>
+</section>
+{% endblock %}

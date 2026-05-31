@@ -1,0 +1,397 @@
+{% extends 'base.html' %}
+{% block title %}Create Account | Attentionneed.com{% endblock %}
+
+{% block content %}
+
+<section class="signup-section">
+
+    <div class="signup-container">
+
+        <!-- LEFT -->
+        <div class="signup-left">
+
+            <span class="badge-text">
+                JOIN ATTENTIONNEED
+            </span>
+
+            <h1>
+                Learn AI, Web Development & Build Real Projects
+            </h1>
+
+            <p>
+                Join professional masterclasses and improve your
+                skills with practical training.
+            </p>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="signup-right">
+
+            <div class="signup-card">
+
+                <h2>Create Account</h2>
+
+                <form method="post" id="signupForm">
+
+                    {% csrf_token %}
+
+                    <!-- FIRST NAME -->
+                    <div class="form-group">
+
+                        <label>First Name</label>
+
+                        <input type="text"
+                               name="first_name"
+                               id="first_name"
+                               placeholder="Enter your first name">
+
+                        <small class="error" id="firstNameError"></small>
+
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="form-group">
+
+                        <label>Email Address</label>
+
+                        <input type="email"
+                               name="email"
+                               id="email"
+                               placeholder="Enter your email">
+
+                        <small class="error" id="emailError"></small>
+
+                    </div>
+
+                    <!-- PHONE -->
+                    <div class="form-group">
+
+                        <label>Phone Number</label>
+
+                        <input type="text"
+                               name="phone"
+                               id="phone"
+                               placeholder="Enter phone number">
+
+                        <small class="error" id="phoneError"></small>
+
+                    </div>
+
+                    <!-- PASSWORD -->
+                    <div class="form-group">
+
+                        <label>Password</label>
+
+                        <input type="password"
+                               name="password1"
+                               id="password"
+                               placeholder="Create password">
+
+                        <small class="error" id="passwordError"></small>
+
+                    </div>
+
+                    <!-- CONFIRM PASSWORD -->
+                    <div class="form-group">
+
+                        <label>Confirm Password</label>
+
+                        <input type="password"
+                               name="password2"
+                               id="confirm_password"
+                               placeholder="Confirm password">
+
+                        <small class="error" id="confirmPasswordError"></small>
+
+                    </div>
+
+                    <button type="submit"
+                            class="signup-btn">
+
+                        Create Account
+
+                    </button>
+
+                </form>
+
+                <p class="login-link">
+                    Already have account?
+
+                    <a href="{% url 'login' %}">
+                        Login
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- INTERNAL CSS -->
+<style>
+
+.signup-section{
+    min-height:100vh;
+    background:linear-gradient(135deg,#071120,#0f172a);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px 20px;
+}
+
+.signup-container{
+    width:100%;
+    max-width:1100px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 20px 60px rgba(0,0,0,0.25);
+}
+
+.signup-left{
+    background:linear-gradient(135deg,#06b6d4,#2563eb);
+    color:white;
+    padding:70px 50px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.badge-text{
+    background:rgba(255,255,255,0.2);
+    padding:8px 18px;
+    border-radius:50px;
+    width:fit-content;
+    font-size:14px;
+    font-weight:600;
+}
+
+.signup-left h1{
+    font-size:48px;
+    line-height:1.2;
+    margin:25px 0;
+}
+
+.signup-left p{
+    font-size:18px;
+    line-height:1.8;
+}
+
+.signup-right{
+    padding:60px 50px;
+    display:flex;
+    align-items:center;
+}
+
+.signup-card{
+    width:100%;
+}
+
+.signup-card h2{
+    font-size:38px;
+    margin-bottom:25px;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.form-group input{
+    width:100%;
+    padding:14px 16px;
+    border:1px solid #dbeafe;
+    border-radius:12px;
+    outline:none;
+    font-size:15px;
+    transition:0.3s;
+}
+
+.form-group input:focus{
+    border-color:#06b6d4;
+    box-shadow:0 0 0 4px rgba(6,182,212,0.15);
+}
+
+.signup-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#06b6d4;
+    color:white;
+    font-size:17px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.signup-btn:hover{
+    background:#0891b2;
+}
+
+.error{
+    color:red;
+    font-size:13px;
+    margin-top:5px;
+    display:block;
+}
+
+.login-link{
+    margin-top:20px;
+    text-align:center;
+}
+
+.login-link a{
+    color:#2563eb;
+    text-decoration:none;
+    font-weight:600;
+}
+
+@media(max-width:991px){
+
+    .signup-container{
+        grid-template-columns:1fr;
+    }
+
+    .signup-left{
+        padding:50px 35px;
+    }
+
+    .signup-left h1{
+        font-size:36px;
+    }
+
+    .signup-right{
+        padding:40px 30px;
+    }
+
+}
+
+</style>
+
+<!-- JQUERY -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<!-- LIVE VALIDATION -->
+<script>
+
+$(document).ready(function(){
+
+    // First Name
+    $('#first_name').keyup(function(){
+
+        let name = $(this).val();
+
+        if(name.length < 3){
+
+            $('#firstNameError').text(
+                'Minimum 3 characters required'
+            );
+
+        } else {
+
+            $('#firstNameError').text('');
+
+        }
+
+    });
+
+    // Email
+    $('#email').keyup(function(){
+
+        let email = $(this).val();
+
+        let pattern =
+        /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+        if(!email.match(pattern)){
+
+            $('#emailError').text(
+                'Enter valid email address'
+            );
+
+        } else {
+
+            $('#emailError').text('');
+
+        }
+
+    });
+
+    // Phone
+    $('#phone').keyup(function(){
+
+        let phone = $(this).val();
+
+        if(phone.length != 10){
+
+            $('#phoneError').text(
+                'Phone must be 10 digits'
+            );
+
+        } else {
+
+            $('#phoneError').text('');
+
+        }
+
+    });
+
+    // Password
+    $('#password').keyup(function(){
+
+        let password = $(this).val();
+
+        if(password.length < 6){
+
+            $('#passwordError').text(
+                'Password minimum 6 characters'
+            );
+
+        } else {
+
+            $('#passwordError').text('');
+
+        }
+
+    });
+
+    // Confirm Password
+    $('#confirm_password').keyup(function(){
+
+        let password =
+        $('#password').val();
+
+        let confirm =
+        $(this).val();
+
+        if(password != confirm){
+
+            $('#confirmPasswordError').text(
+                'Passwords do not match'
+            );
+
+        } else {
+
+            $('#confirmPasswordError').text('');
+
+        }
+
+    });
+
+});
+
+</script>
+
+{% endblock %}
