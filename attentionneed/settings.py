@@ -95,10 +95,13 @@ LOGIN_URL = 'login'
 
 import cloudinary
 
+import os
+import cloudinary
+
 cloudinary.config(
-    cloud_name="dxwtxb33i",
-    api_key="811183532696885",
-    api_secret="nqD0gq1sBe-kr7O3M9_KgKG_oR8"
+    cloud_name=os.environ.get("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.environ.get("CLOUDINARY_API_KEY"),
+    api_secret=os.environ.get("CLOUDINARY_API_SECRET"),
 )
 
 DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
