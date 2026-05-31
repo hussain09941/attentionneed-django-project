@@ -15,6 +15,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
+
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 # MIDDLEWARE = [
@@ -89,3 +92,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
+
+import cloudinary
+
+cloudinary.config(
+    cloud_name="dxwtxb33i",
+    api_key="811183532696885",
+    api_secret="nqD0gq1sBe-kr7O3M9_KgKG_oR8"
+)
+
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
